@@ -6,7 +6,4 @@ resource "aws_instance" "webec2" {
   vpc_security_group_ids = ["vpc-47dac33d"]
   subnet_id              = "subnet-febb70df"
 }
-  tags = {
-    Terraform   = "true"
-    Environment = "dev"
-  }
+ 

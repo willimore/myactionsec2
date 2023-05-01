@@ -3,7 +3,7 @@ resource "aws_instance" "webec2" {
   instance_type          = "t2.micro"
   key_name               = ""
   monitoring             = true
-  vpc_security_group_ids = ["vpc-47dac33d"]
+  vpc_security_group_ids = [aws_security_group.main.id]
   subnet_id              = "subnet-febb70df"
 }
  

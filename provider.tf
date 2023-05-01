@@ -1,7 +1,7 @@
 terraform {
   backend "s3" {
     bucket = "myfirstwillbucket22"
-    key = "quickmyfirstwillbucket22.tfstate"
+    key = "build/terraform.tfstate"
     region = "us-east-1"
 }
 }

@@ -1,11 +1,3 @@
-resource "aws_default_vpc" "default_vpc" {
-
-  tags = {
-    Name = "default vpc"
-  }
-}
-
-
 resource "aws_instance" "webec2" {
   ami                    = "ami-007855ac798b5175e"
   instance_type          = "t2.micro"
@@ -15,7 +7,6 @@ resource "aws_instance" "webec2" {
 }
 
 resource "aws_security_group" "web-sg" {
-  name = "${random_pet.sg.id}-sg"
   ingress {
     from_port   = 8080
     to_port     = 8080

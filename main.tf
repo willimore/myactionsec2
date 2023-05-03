@@ -11,6 +11,15 @@ resource "aws_instance" "webec2" {
   instance_type          = "t2.micro"
   key_name               = ""
   monitoring             = true
-  vpc_security_group_ids = aws_default_vpc.default_vpc.id
-  subnet_id              = "subnet-febb70df"
+  vpc_security_group_ids = [aws_security_group.web-sg.id]
+}
+
+resource "aws_security_group" "web-sg" {
+  name = "${random_pet.sg.id}-sg"
+  ingress {
+    from_port   = 8080
+    to_port     = 8080
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
 }
